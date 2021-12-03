@@ -10,6 +10,7 @@ func cleanup(name string) {
 
 func worker() {
 	defer cleanup("A")
+	defer cleanup("B");
 
 	fmt.Println("worker")
 }
