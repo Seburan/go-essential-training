@@ -1,0 +1,10 @@
+2021/12/07 22:25:54 error : open /path/to/config.toml: no such file or directory
+can't open configuration file
+main.readConfig
+	/usr/local/google/home/seburan/Development/GitHub/go-essential-training/Ch05/05_01/errors.go:20
+main.main
+	/usr/local/google/home/seburan/Development/GitHub/go-essential-training/Ch05/05_01/errors.go:41
+runtime.main
+	/usr/lib/google-golang/src/runtime/proc.go:255
+runtime.goexit
+	/usr/lib/google-golang/src/runtime/asm_amd64.s:1581
