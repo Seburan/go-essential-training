@@ -1,10 +1,9 @@
-// Get content type of sites
+// Challenge : Channels
 package main
 
 import (
 	"fmt"
 	"net/http"
-	"sync"
 )
 
 func returnType(url string) {
@@ -26,14 +25,20 @@ func main() {
 		"https://httpbin.org/xml",
 	}
 
-	var wg sync.WaitGroup;
+	// var wg sync.WaitGroup;
+	var ch = make(chan int); // create a channel
 
 	for _, url := range urls {
-		wg.Add(1)
+
 		go func(url string) {
 			returnType(url)
-			wg.Done();
+			ch <- 1; // push index number to channel
 		} (url);
-		wg.Wait();
+		//close(ch);
+	}
+
+	for i, _ := range urls {
+		val := <-ch;
+		fmt.Printf("%d - received %d\n", i, val);
 	}
 }
