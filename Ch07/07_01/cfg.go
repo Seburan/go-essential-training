@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/pelletier/go-toml"
+	toml "github.com/pelletier/go-toml"
 )
 
 // Config is configuration
