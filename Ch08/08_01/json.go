@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 )
 
 var data = `
@@ -35,5 +36,17 @@ func main() {
 	}
 
 	fmt.Printf("got: %+v\n", req)
+
+	// Create response
+	prevBalance := 8500000.0; // actually loaded from Database
+	resp := map[string]interface{}{
+		"ok": true,
+		"balance": prevBalance + req.Amount,
+	}
+
+	enc := json.NewEncoder(os.Stdout);
+	if err := enc.Encode(resp); err != nil {
+		log.Fatalf("error : cannot encode the response - %s", err);
+	}
+
 }
-	
